@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ZhangAo`s Blog</title>
+  
+  <subtitle>ZhangAo`s Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://Lyle-za.coding.me/hexo-blog-test/"/>
+  <updated>2018-04-30T09:18:14.961Z</updated>
+  <id>http://Lyle-za.coding.me/hexo-blog-test/</id>
+  
+  <author>
+    <name>[object Object]</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>教你玩不一样的微信跳一跳小游戏</title>
+    <link href="http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/%E6%95%99%E4%BD%A0%E7%8E%A9%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%B7%B3%E4%B8%80%E8%B7%B3%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
+    <id>http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/教你玩不一样的微信跳一跳小游戏/</id>
+    <published>2018-04-30T15:29:23.213Z</published>
+    <updated>2018-04-30T09:18:14.961Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。</p><p>下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相关依赖，所以我们配置环境变量时要将pip的文件夹也配置进去，<br>将python的安装目录以及pip目录（scripts）全部放在path环境变量中就好了。</p><p>安装adb的驱动adb drvier下载下来安装就好，它的安装路径也要放在path环境变量下。</p><p>然后将数据线连到手机，手机点开应用调试，并且将开发者选项中的允许模拟点击打开，然后电脑运行cmd输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p><p>此时手机会弹出是否允许调试，点击时，你就会在命令窗口看见你的手机编号。</p><p>上面的都完成后，去GitHub下载这个程序，地址：<a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener"> 微信跳一跳</a></p><p>下载后解压出来，在他的目录下打开cmd，然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p><p>这个安装时间有点长，请耐心等待。</p><p>安装完成后在config里面找到自己的手机尺寸然后点进去，里面有个文件，外面有几个手机信号的文件夹，里面也有相同的文件，将你机型的文件替换到你屏幕尺寸的文件里面，就好了，没有你的机型的话就不要动，或者说你可以自己改改参数。</p><p>然后跳转到文件根目录，手机连上电脑，打开微信跳一跳，点击开始，然后在文件根目录打开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python wechat_jump_auto.py</span><br></pre></td></tr></table></figure></p><p>他会提示你是否adb有手机连入了，你输入y就开始自己玩了。<br><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。&lt;/p&gt;
+&lt;p&gt;下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://Lyle-za.coding.me/hexo-blog-test/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://Lyle-za.coding.me/hexo-blog-test/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何优雅的装B--hydra</title>
+    <link href="http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E8%A3%85B--hydra/"/>
+    <id>http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/如何优雅的装B--hydra/</id>
+    <published>2018-04-30T15:29:23.212Z</published>
+    <updated>2018-04-30T08:59:00.455Z</updated>
+    
+    <content type="html"><![CDATA[<p>既然都说了要优雅的装逼，那当然要装的像一点。</p><p>首先我们来介绍下hydra:</p><p>海德拉（Hydra）：希腊神话中的九头蛇，是西方的神话生物，在古希腊神话中出现最为频繁。传说它拥有九颗头，其中一颗头要是被斩断，立刻又会生出两颗头来。赫拉克勒斯运用他的智慧，成功地击败了巨大水蛇海德拉。</p><p>当然这介绍和我们要说的软件没有太大的联系，百度也没有介绍，大家要想去看看介绍的话可以点击访问他们的<a href="https://www.thc.org/" target="_blank" rel="noopener">官网</a>。</p><p>THC-HYDRA是一个支持多种网络服务的非常快速的网络登陆破解工具。这个工具是一个验证性质的工具，它被设计的主要目的是为研究人员和安全从业人员展示远程获取一个系统的认证权限是比较容易的！</p><p>我这里要做的只是演示一遍它的安装以及用法。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首先我们的环境为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centos 6.0</span><br></pre></td></tr></table></figure><p>用的阿里的服务器。</p><p>首先先下载要用到的文件:</p><p><a href="http://pan.baidu.com/s/1pLwWU6Z" target="_blank" rel="noopener">hydra</a>密码：hm6k</p><p><a href="http://pan.baidu.com/s/1kUYc7Kr" target="_blank" rel="noopener">libssh</a>密码：54ks</p><p>我们用的是xshell连接的我们的服务器，可以去百度下载。</p><p><img src="/img/11-4-1.png"></p><p>首先我们先连接上服务器，然后为了方便上传文件先安装rzsz</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lrzsz</span><br><span class="line">rz</span><br></pre></td></tr></table></figure><p>上传两个文件</p><p><img src="/img/11-4-2.png"></p><p>然后分别解压它们</p><p><img src="/img/11-4-3.png"><br><img src="/img/11-4-4.png"></p><p>进入libssh目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd libssh-0.4.8</span><br></pre></td></tr></table></figure><p>创建文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"></span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>在执行cmake的时候可能会报错（我用的阿里云的官方系统里面啥都没安装）</p><p>错误提示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-bash: cmake: command not found</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make automake </span><br><span class="line"></span><br><span class="line">yum install -y wget</span><br><span class="line"></span><br><span class="line">wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf cmake-2.8.10.2.tar.gz</span><br><span class="line"></span><br><span class="line">cd cmake-2.8.10.2</span><br><span class="line"></span><br><span class="line">./bootstrap</span><br><span class="line"></span><br><span class="line">gmake</span><br><span class="line"></span><br><span class="line">gmake install</span><br></pre></td></tr></table></figure><p>执行完后在执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>可能还会报错，我把这几个错误一起放在下面</p><p>错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at cmake/Modules/FindZLIB.cmake:76 (message):</span><br><span class="line">  Could not find ZLIB</span><br><span class="line">Call Stack (most recent call first):</span><br><span class="line">  CMakeLists.txt:47 (find_package)</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install zlib-devel</span><br></pre></td></tr></table></figure><p>错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at CMakeLists.txt:59 (message):</span><br><span class="line">  Could not find OpenSSL or GCrypt</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -f CMakeCache.txt</span><br><span class="line">yum -y install ncurses-devel</span><br><span class="line">yum install openssl-devel</span><br></pre></td></tr></table></figure><p>然后基本执行下面这条语句就不会报错了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>成功后执行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>这样libssh就安装好了，下面安装hydra</p><p>进入hydra的目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd hydra-6.3-src</span><br></pre></td></tr></table></figure><p>执行下面的指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>安装完成了，下面我们要开始装B了</p><p>首先准备好两个文件，一个放用户名的username.txt一个放密码的password.txt</p><p>我就用自己的服务器做实验了，密码文件里有正确的密码</p><p>用户名文件里放一个root就好</p><p><img src="/img/11-4-5.png"></p><p>然后上传到服务器执行指令</p><p><img src="/img/11-4-7.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -L username.txt -P password.txt -t 1 -vV -e ns IP ssh</span><br></pre></td></tr></table></figure><p>然后等待一会就能爆破成功了</p><p><img src="/img/11-4-6.png"></p><p>它还有很多的爆破协议，我就就只示范这一种就好了</p><p>大家有兴趣可以去尝试其他几种</p><p>好了装B结束</p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;既然都说了要优雅的装逼，那当然要装的像一点。&lt;/p&gt;
+&lt;p&gt;首先我们来介绍下hydra:&lt;/p&gt;
+&lt;p&gt;海德拉（Hydra）：希腊神话中的九头蛇，是西方的神话生物，在古希腊神话中出现最为频繁。传说它拥有九颗头，其中一颗头要是被斩断，立刻又会生出两颗头来。赫拉克勒斯运用他的智
+      
+    
+    </summary>
+    
+      <category term="随笔记" scheme="http://Lyle-za.coding.me/hexo-blog-test/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Hacker series" scheme="http://Lyle-za.coding.me/hexo-blog-test/tags/Hacker-series/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>去掉迅雷9的右半边浏览器</title>
+    <link href="http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/%E5%8E%BB%E6%8E%89%E8%BF%85%E9%9B%B79%E7%9A%84%E5%8F%B3%E5%8D%8A%E8%BE%B9%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    <id>http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/去掉迅雷9的右半边浏览器/</id>
+    <published>2018-04-30T15:29:23.211Z</published>
+    <updated>2018-04-30T09:07:42.638Z</updated>
+    
+    <content type="html"><![CDATA[<p>都知道下载神器迅雷，但是迅雷出了一个9，他的左半边是下载的界面，右半边完全是一个浏览器，官方解释说这样是为了大家更方便下载资源，但是右边的浏览器有时候会自动播放视频等一些广告，还有就是加上浏览器后，他的面积也变大了。对于一个下载器来说这些功能似乎有点多余了。好了下面教大家如何去掉迅雷9的右半边浏览器。</p><p>首先下载迅雷9，大家可以去它的官网下载：<a href="http://xl9.xunlei.com/" target="_blank" rel="noopener">迅雷9</a></p><p>下载完成后，正常安装就好。</p><p>安装完成后我们去他的安装目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Program Files (x86)\Thunder Network\Thunder9\Thunder\Xar</span><br></pre></td></tr></table></figure></p><p><img src="/img/2017-11-24-1.png"></p><p>把这个目录下的这个文件复制两份，一份到桌面，一份保存起来</p><p>然后下载这个文件<a href="https://pan.baidu.com/s/1c1BXwrQ" target="_blank" rel="noopener">JXar</a>密码: meiw</p><p>下载完成后打开，将刚才复制到桌面的文件拖动到这个软件里面，然后点击Unpack，就会在桌面生成一个文件夹</p><p><img src="/img/2017-11-24-2.png"></p><p>然后进入生成的文件夹，依次点开下面的文件</p><p><img src="/img/2017-11-24-3.png"> </p><p><img src="/img/2017-11-24-4.png"> </p><p>最后点开mainwnd文件</p><p>将选中的这一块区域删除</p><p><img src="/img/2017-11-24-5.png"> </p><p>将这个1235修改为363</p><p><img src="/img/2017-11-24-6.png"></p><p>然后保存退出</p><p>再打开JXar软件，将这个文件夹拖进去，将右边两个选项依次选着7和7.9，然后将桌面刚开始复制出来的ThunderCore.xar删除，点击pack，桌面就会生成一个ThunderCore.xar文件，用这个文件替换它安装目录的那个文件，最后打开迅雷9</p><p><img src="/img/2017-11-24-7.png"></p><p><img src="/img/2017-11-24-8.png"></p><p>拖动这个边缘就会缩小，最后就会缩小为这个样子</p><p><img src="/img/2017-11-24-9.png"></p><p>这个样子是打不开设置的，如果要打开设置就将刚开始保存的那一份文件替换回来就可以打开了</p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;都知道下载神器迅雷，但是迅雷出了一个9，他的左半边是下载的界面，右半边完全是一个浏览器，官方解释说这样是为了大家更方便下载资源，但是右边的浏览器有时候会自动播放视频等一些广告，还有就是加上浏览器后，他的面积也变大了。对于一个下载器来说这些功能似乎有点多余了。好了下面教大家如
+      
+    
+    </summary>
+    
+      <category term="随笔记" scheme="http://Lyle-za.coding.me/hexo-blog-test/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="迅雷" scheme="http://Lyle-za.coding.me/hexo-blog-test/tags/%E8%BF%85%E9%9B%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js在Cookie中取值乱码问题</title>
+    <link href="http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/js%E5%9C%A8cookie%E4%B8%AD%E5%8F%96%E5%80%BC%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <id>http://Lyle-za.coding.me/hexo-blog-test/2018/04/30/js在cookie中取值乱码问题/</id>
+    <published>2018-04-30T15:29:23.210Z</published>
+    <updated>2018-04-30T08:48:16.710Z</updated>
+    
+    <content type="html"><![CDATA[<p>假设服务器端设置了变量CookieTest,然后通过UrlEncode编码为 utf-8</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CookieTest = HttpUtility.UrlEncode(CookieTest, System.Text.Encoding.UTF8);</span><br></pre></td></tr></table></figure><p>然后将 CookieTest 存入到cookie中</p><p>在前端界面里面，用JavaScript取到cookie中CookieTest的值，然后用 decodeURI 解码</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CookieTest = <span class="built_in">decodeURI</span>(CookieTest);</span><br></pre></td></tr></table></figure><p>最后得到的这个CookieTest值就是你从服务器端传过来的值</p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;假设服务器端设置了变量CookieTest,然后通过UrlEncode编码为 utf-8&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://Lyle-za.coding.me/hexo-blog-test/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://Lyle-za.coding.me/hexo-blog-test/tags/JavaScript/"/>
+    
+      <category term="Cookie" scheme="http://Lyle-za.coding.me/hexo-blog-test/tags/Cookie/"/>
+    
+  </entry>
+  
+</feed>
