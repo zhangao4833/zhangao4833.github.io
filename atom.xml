@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lyle-za.cn/"/>
-  <updated>2018-05-05T14:07:26.758Z</updated>
+  <updated>2018-05-06T13:19:04.036Z</updated>
   <id>https://www.lyle-za.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO安装hexo-helper-live2d插件遇到的问题</title>
+    <link href="https://www.lyle-za.cn/2018/05/06/HEXO%E5%AE%89%E8%A3%85hexo-helper-live2d%E6%8F%92%E4%BB%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.lyle-za.cn/2018/05/06/HEXO安装hexo-helper-live2d插件遇到的问题/</id>
+    <published>2018-05-06T13:20:29.073Z</published>
+    <updated>2018-05-06T13:19:04.036Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote><p>hexo-helper-live2d 是一个HEXO的插件，俗称2D面板娘，它的github地址在这里大家可以去看看：<a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">hexo-helper-live2d</a>,里面有它的安装方法和一些设置。</p></blockquote><blockquote><p>在你的网站中如果有使用lunr的话，那么在用npm install安装，不管是安装它的环境还是面板娘的模型都会出现安装后本地调试的时候出现找不到lunr的错误提示，但是你的本地网页是能打开的，面板娘也是能正确显示的，但网站里面的搜索用不了了，这就是lunr找不到引发的问题。</p></blockquote><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>首先我用对比看了下安装后改了哪些文件，对比后发现，少了两个关键的文件夹。</p><p><img src="/img/2d-nodejieba.png"></p><p><img src="/img/2d-lunr.png"></p><p>这两个文件夹就是关键，在用npm install的时候自动把它们删除了，我也不知道为什么，你把它备份一份然后安装后又copy回去就好了。</p><p>还有在 package-lock.json 文件中关于那两个文件夹的内容也被删除了，但是你在把文件夹copy回去然后本地调试的时候应该会自动生成的，如果没有生成，你就把少的内容自己再copy回去。</p><p><img src="/img/2d-nodejieba-json.png"></p><p><img src="/img/2d-lunr-json.png"></p><h2 id="下面这个算是优化"><a href="#下面这个算是优化" class="headerlink" title="下面这个算是优化"></a>下面这个算是优化</h2><blockquote><p>如果你的网页在安装了2d面板娘后，发现在网页加载的时候2d娘加载的一瞬间你的网站动画会一卡一卡的，这就要改一下2d面板娘加载的时间了。</p></blockquote><blockquote><p>在文件 HEXO根目录\node_modules\hexo-helper-live2d\index.js 将这一句代码</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const scriptToInject = `L2Dwidget.init($&#123;JSON.stringify(config)&#125;);`;</span><br></pre></td></tr></table></figure><p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const scriptToInject = `setTimeout(function ()&#123;L2Dwidget.init($&#123;JSON.stringify(config)&#125;)&#125;, 1500);`;</span><br></pre></td></tr></table></figure></p><p>这主要就是给它的加载设置了个1.5s的延时，这样就能错开它与网站动画加载的时间，就不会一卡一卡的了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;hexo-helper-live2d 是一个HEXO的插件，俗称2D面板娘，它的github地址在这里大家可以去看
+      
+    
+    </summary>
+    
+      <category term="HEXO" scheme="https://www.lyle-za.cn/categories/HEXO/"/>
+    
+    
+      <category term="HEXO" scheme="https://www.lyle-za.cn/tags/HEXO/"/>
+    
+      <category term="live2d" scheme="https://www.lyle-za.cn/tags/live2d/"/>
+    
+  </entry>
   
   <entry>
     <title>Python  Socket+Django简单的视频流</title>
