@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.imzhangao.com/"/>
-  <updated>2018-05-11T14:23:50.951Z</updated>
+  <updated>2018-06-18T09:31:05.834Z</updated>
   <id>https://www.imzhangao.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gunicorn与Nginx部署Django服务器</title>
+    <link href="https://www.imzhangao.com/2018/06/18/Gunicorn%E4%B8%8ENginx%E9%83%A8%E7%BD%B2Django%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://www.imzhangao.com/2018/06/18/Gunicorn与Nginx部署Django服务器/</id>
+    <published>2018-06-18T08:37:34.331Z</published>
+    <updated>2018-06-18T09:31:05.834Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="python版本说明"><a href="#python版本说明" class="headerlink" title="python版本说明"></a>python版本说明</h2><p>首先就是python的版本问题，服务器（我的是centos7）会自带一个python版本，我的看了下是2.7.5的版本，因为它用<br>的yum install安装就需要调用python，而我用的本地django环境是python3.x的版本，大家都知道这两个版本有很多<br>东西有点不同，所以我们本地是什么环境，最好在服务器上就是什么环境，避免有一些不必要的错误。</p><h3 id="首先安装python3-x的版本"><a href="#首先安装python3-x的版本" class="headerlink" title="首先安装python3.x的版本"></a>首先安装python3.x的版本</h3><p>这个可以参考大佬的这篇文章：<a href="https://www.cnblogs.com/FZfangzheng/p/7588944.html" target="_blank" rel="noopener">https://www.cnblogs.com/FZfangzheng/p/7588944.html</a><br>里面有详细的安装以及说明，但是在最后创建软连的时候，我是将python直接默认为python3的路径了，这样就不用python3<br>这样的命令了，解决了很多默认就用python调用的问题，但是这样改完之后，使用yum install命令会报错，大家可以根据报<br>错的文件，打开它，将头部的python改为系统默认安装的python2.7.5版本路径。</p><h2 id="Nginx与Gunicorn的安装使用"><a href="#Nginx与Gunicorn的安装使用" class="headerlink" title="Nginx与Gunicorn的安装使用"></a>Nginx与Gunicorn的安装使用</h2><p>这些问题都很简单的，安装Gunicorn和使用,他的帮助文档里面全都有：<br><a href="http://docs.gunicorn.org/en/latest/install.html" target="_blank" rel="noopener">http://docs.gunicorn.org/en/latest/install.html</a></p><p>如果看不懂官方文档的可以参考这篇文档去设置：<a href="https://www.cnblogs.com/nanrou/p/7026802.html" target="_blank" rel="noopener">https://www.cnblogs.com/nanrou/p/7026802.html</a></p><h2 id="django-setting文件"><a href="#django-setting文件" class="headerlink" title="django setting文件"></a>django setting文件</h2><pre><code>在最后加入代码</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = &apos;/static/&apos;</span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">     os.path.join(BASE_DIR, &apos;static&apos;).replace(&apos;\\&apos;, &apos;/&apos;),</span><br><span class="line">)</span><br></pre></td></tr></table></figure><pre><code>在INSTALLED_APPS中把gunicorn加进去，然后其他的就按上面的那篇文档设置就好了。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;python版本说明&quot;&gt;&lt;a href=&quot;#python版本说明&quot; class=&quot;headerlink&quot; title=&quot;python版本说明&quot;&gt;&lt;/a&gt;python版本说明&lt;/h2&gt;&lt;p&gt;首先就是python的版本问题，服务器（我的是centos7）会自带一个py
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
+    
+      <category term="Django" scheme="https://www.imzhangao.com/tags/Django/"/>
+    
+      <category term="Gunicorn" scheme="https://www.imzhangao.com/tags/Gunicorn/"/>
+    
+      <category term="Nginx" scheme="https://www.imzhangao.com/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>梯子安装以及运行出现的问题</title>
@@ -95,9 +126,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
-    
       <category term="Django" scheme="https://www.imzhangao.com/tags/Django/"/>
+    
+      <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
     
   </entry>
   
