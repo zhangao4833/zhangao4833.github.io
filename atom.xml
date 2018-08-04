@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.imzhangao.com/"/>
-  <updated>2018-08-04T13:42:58.040Z</updated>
+  <updated>2018-07-02T08:33:31.455Z</updated>
   <id>https://www.imzhangao.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>石大杨的小电影</title>
-    <link href="https://www.imzhangao.com/2018/08/04/%E7%9F%B3%E5%A4%A7%E6%9D%A8%E7%9A%84%E5%B0%8F%E7%94%B5%E5%BD%B1/"/>
-    <id>https://www.imzhangao.com/2018/08/04/石大杨的小电影/</id>
-    <published>2018-08-04T13:22:11.083Z</published>
-    <updated>2018-08-04T13:42:58.040Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="熔炉"><a href="#熔炉" class="headerlink" title="熔炉"></a>熔炉</h2><embed allowscriptaccess="always" allowfullscreen="true" quality="high" bgcolor="#FFF" wmode="transparent" src="http://img2.467835.com/ckplayer/ckplayer.swf" flashvars="f=http://img2.467835.com/ckplayer/m3u8.swf&amp;a=https%3A%2F%2Fv.xw0371.com%2F20171125%2Fp2UCjPLQ%2Findex.m3u8&amp;c=0&amp;p=1&amp;s=4&amp;lv=0" width="665" height="500" name="ckplayer_a1" id="ckplayer_a1" align="middle" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;熔炉&quot;&gt;&lt;a href=&quot;#熔炉&quot; class=&quot;headerlink&quot; title=&quot;熔炉&quot;&gt;&lt;/a&gt;熔炉&lt;/h2&gt;&lt;embed allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; quality=&quot;high&quot; b
-      
-    
-    </summary>
-    
-      <category term="HTML" scheme="https://www.imzhangao.com/categories/HTML/"/>
-    
-    
-      <category term="石大杨" scheme="https://www.imzhangao.com/tags/%E7%9F%B3%E5%A4%A7%E6%9D%A8/"/>
-    
-  </entry>
   
   <entry>
     <title>Python Tkinter实现简单的校际运动会管理系统</title>
