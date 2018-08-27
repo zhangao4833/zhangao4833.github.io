@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.imzhangao.com/"/>
-  <updated>2018-07-02T08:33:31.455Z</updated>
+  <updated>2018-08-27T14:06:11.519Z</updated>
   <id>https://www.imzhangao.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>给HEXO主题skapp添加来必力评论系统</title>
+    <link href="https://www.imzhangao.com/2018/08/27/%E7%BB%99HEXO%E4%B8%BB%E9%A2%98skapp%E6%B7%BB%E5%8A%A0%E6%9D%A5%E5%BF%85%E5%8A%9B%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://www.imzhangao.com/2018/08/27/给HEXO主题skapp添加来必力评论系统/</id>
+    <published>2018-08-27T12:55:33.153Z</published>
+    <updated>2018-08-27T14:06:11.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote><p>首先我去问了该主题的作者，有没有集成livere，作者回答说目前没有考虑集成livere，如果我想集成的话可以fork过去集成。也就是说作者后面仍没有想要集成livere的想法。所以我自己就分析了下代码，自己集成上了livere，这个评论系统比较的方便。其他的主题应该和这个差不了多少，如果你们的主题也没有的话，可以参考我这个方法试一下。</p></blockquote><h1 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h1><blockquote><p>首先注册livere，官网是  <a href="https://livere.com/" target="_blank" rel="noopener">https://livere.com/</a></p></blockquote><blockquote><p>注册后，去建立你的评论系统（进去填一下网站之类的就好了，不会的自行百度），注册后会得到一段js代码，外面是一个div包着的。</p></blockquote><blockquote><p>如下(data-uid不是“*”是一串字符，我只是给你个例子隐藏了data-uid)</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;**********************&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure><blockquote><p>然后打开下面路径的文件</p></blockquote><blockquote><p>Blog\themes\hexo-theme-skapp\layout_partial\common\comment.swig</p></blockquote><blockquote><p>在里面添加如下代码</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.comments &amp;&amp; config.livere %&#125;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><blockquote><p>然后在打开下面的文件</p></blockquote><blockquote><p>Blog\themes\hexo-theme-skapp\layout_partial\post\main.swig</p></blockquote><blockquote><p>在div的结束标签&lt;/div>前添加如下代码</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.comments &amp;&amp; config.livere %&#125;</span><br><span class="line">    &lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&#123;&#123; config.livere.livere_uid &#125;&#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><blockquote><p>如果想在其他界面比如about界面中显示来必力还要去其他界面的文件中添加上诉代码</p></blockquote><blockquote><p>最后再配置文件中添加如下代码（Blog\_config.yml）</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">livere:</span><br><span class="line">  livere_uid: ******************</span><br></pre></td></tr></table></figure><blockquote><p>该livere_uid 为你在来必力注册时给你给的代码里的data-uid</p></blockquote><blockquote><p>到此来必力就安装成功了，打开你的网站就能在文章页下面看见来必力的评论框了，要设置这个评论框的样式或者登陆方式可以登陆来必力官网进行设置。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;首先我去问了该主题的作者，有没有集成livere，作者回答说目前没有考虑集成livere，如果我想集成的话可以fo
+      
+    
+    </summary>
+    
+      <category term="HEXO" scheme="https://www.imzhangao.com/categories/HEXO/"/>
+    
+    
+      <category term="HEXO" scheme="https://www.imzhangao.com/tags/HEXO/"/>
+    
+      <category term="skapp" scheme="https://www.imzhangao.com/tags/skapp/"/>
+    
+  </entry>
   
   <entry>
     <title>Python Tkinter实现简单的校际运动会管理系统</title>
