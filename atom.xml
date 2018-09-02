@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.imzhangao.com/"/>
-  <updated>2018-09-01T14:25:38.459Z</updated>
+  <updated>2018-09-02T06:30:57.804Z</updated>
   <id>https://www.imzhangao.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python爬虫爬取微软官方Windows_10_ISO镜像文件</title>
+    <link href="https://www.imzhangao.com/2018/09/02/Python%E7%88%AC%E8%99%AB%E7%88%AC%E5%8F%96%E5%BE%AE%E8%BD%AF%E5%AE%98%E6%96%B9Windows_10_ISO%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6/"/>
+    <id>https://www.imzhangao.com/2018/09/02/Python爬虫爬取微软官方Windows_10_ISO镜像文件/</id>
+    <published>2018-09-02T05:12:32.000Z</published>
+    <updated>2018-09-02T06:30:57.804Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h1><blockquote><p>该爬虫没有采用Scrapy框架，只是采用简单的request+selenium以及前端可视化界面的PyQt5，如果你认为网上的系统不是很干净，MSDN里面的系统又比较的旧，没有新的版本，那你就可以尝试使用该软件，也可以优化或更改它</p></blockquote><blockquote><p>为什么要用selenium呢，我发现他官网属性里有个input标签并不是静态加载的，而是动态加载的，当然后面还有很多动态的ajax加载，但是这个input标签不一样，我分析了它的ajax全部加载项，很难发现他的value值在哪加进去的，这个value值十分重要，它将会是后面ajax请求的重要参数，所以我采用selenium配合chromedriver等他js加载完了之后再去获取界面的标签就可以了，当然可能分析js能抓到它的值，我没有详细的去看，selenium以及提供很简单的方法，并不用那么复杂。</p></blockquote><blockquote><p>后面选择语言、版本、位数选项都是采用的ajax请求去做的，我就采用简单的url拼接的方式去获取返回值，再根据返回值构建新的url，直到获取到Windows的ISO下载链接为止。</p></blockquote><blockquote><p>在这里提醒下，微软官网有访问限制，如果频繁访问的话就会返回请求不到链接的情况，这是IP屏蔽，我在界面里也加了判断，如果你获取不到请求了会提示你的，但是不用担心，就算被屏蔽了，过几个小时就又可以访问了（由于测试要不停的访问，我可是牺牲了好几个酸酸乳）</p></blockquote><blockquote><p>有大佬会问为啥不用代理，我感觉没必要，ISO获取一次就OK了，谁没事干一直获取它的链接完，你获取一个链接下载就好了</p></blockquote><blockquote><p>在下载模块这边刚开始使用了网上的有个多线程下载的方式（后面我会贴出来，可以破解百度云的下载限速），但是我发现了两点意外情况，第一点python的多线程有个全局解释器锁（GIL），有兴趣的可以百度详细去看一下，我在测试10M大小的文件时，最快下载速度是当线程开到100的时候，当你在添加线程数的话它的速度反而会下降，第二点，文件大概有4G左右大小，他这个多线程的原理就是先在链接头里获取文件的大小，然后将大小分割成线程块（几个线程就几块）然后每个线程将分配到自己的块写入指定位置，但是如果文件太大的话就算分割了还是比较的大，线程的下载速度还是很慢，如果启动太多线程就会有第一点的问题，同时线程太多也会引起很多错误，我没仔细分析错误，因为我认为自己的宽带速度才是关键，微软官网对于下载并没有限速，我用酸酸乳下载挺快的，那该多线程下载方法就只能针对限速的链接，像这种没限速的，自己的宽带速度才是关键，不管你开多少线程，网速还是那样。所以我采用了简单的下载模块urlretrieve</p></blockquote><blockquote><p>就是因为微软的服务器可能不在中国，所以下载速度很慢，挂个酸酸乳就快了，我也在界面里将获取到的链接放出来了，嫌下载慢的，可以点击复制链接，自己去其他下载器下载</p></blockquote><blockquote><p>我用的chromedriver版本是v2.41，它所支持的Chrome版本为v67-69，大家可以自行下载或者替换chromedriver与Chrome浏览器</p></blockquote><blockquote><p>前端界面采用的是Qt Creator 4.6.2 (Enterprise)和pycharm配合产生的界面，不会配置的可以百度下</p></blockquote><blockquote><p>该项目的源码以及打包后的exe文件发布在github中:<a href="https://github.com/zhangao4833/Microsoft_win10ISO" target="_blank" rel="noopener">点击此进入项目</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;简单说明&quot;&gt;&lt;a href=&quot;#简单说明&quot; class=&quot;headerlink&quot; title=&quot;简单说明&quot;&gt;&lt;/a&gt;简单说明&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;该爬虫没有采用Scrapy框架，只是采用简单的request+selenium以及前端可视化界面的
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
+    
+      <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Windows10" scheme="https://www.imzhangao.com/tags/Windows10/"/>
+    
+      <category term="微软" scheme="https://www.imzhangao.com/tags/%E5%BE%AE%E8%BD%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>基于PHP+MySQL+bootstrap的宾馆管理系统</title>
