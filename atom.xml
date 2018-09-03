@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.imzhangao.com/"/>
-  <updated>2018-09-02T06:30:57.804Z</updated>
+  <updated>2018-09-02T14:01:18.474Z</updated>
   <id>https://www.imzhangao.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python爬虫爬取鬼刀的画作</title>
+    <link href="https://www.imzhangao.com/2018/09/02/Python%E7%88%AC%E8%99%AB%E7%88%AC%E5%8F%96%E9%AC%BC%E5%88%80%E7%9A%84%E7%94%BB%E4%BD%9C/"/>
+    <id>https://www.imzhangao.com/2018/09/02/Python爬虫爬取鬼刀的画作/</id>
+    <published>2018-09-02T14:00:49.107Z</published>
+    <updated>2018-09-02T14:01:18.474Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>都是比较简单的内容，我就不建项目了，直接上代码了，还有大佬说为啥不用多线程，我注释里有多线程的代码，你取消注释就好了，但是我每次多线程下载到一半就出错了，所以还是用了urlretrieve安稳下载了，速度也挺快的。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from lxml import etree</span><br><span class="line">import re</span><br><span class="line">import threading</span><br><span class="line">def url(url):</span><br><span class="line">    header = &#123;&quot;User-Agent&quot;: &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;&quot;&#125;</span><br><span class="line">    requests = urllib.request.Request(url,headers=header)</span><br><span class="line">    response = urllib.request.urlopen(requests)</span><br><span class="line">    html = response.read().decode(&quot;GBK&quot;)</span><br><span class="line">    return html</span><br><span class="line">def getlink(html):</span><br><span class="line">    page = etree.HTML(html)</span><br><span class="line">    imageurl = page.xpath(u&quot;/html/body/div[@id=&apos;main&apos;]/div[@class=&apos;list&apos;]/ul/li/a/@href&quot;)</span><br><span class="line">    return imageurl</span><br><span class="line">def nextpageurl(html):</span><br><span class="line">    page = etree.HTML(html)</span><br><span class="line">    next = page.xpath(u&quot;/html/body/div[@id=&apos;main&apos;]/div[@class=&apos;page&apos;]/a&quot;)</span><br><span class="line">    allpage = len(next)</span><br><span class="line">    return allpage</span><br><span class="line">def allpageurl(num):</span><br><span class="line">    pageurllist = [&apos;http://www.netbian.com/s/wlop/index.htm&apos;,]</span><br><span class="line">    for i in range(2,num + 1):</span><br><span class="line">        url = &quot;http://www.netbian.com/s/wlop/index_&quot;+str(i)+&quot;.htm&quot;</span><br><span class="line">        pageurllist.append(url)</span><br><span class="line">    return pageurllist</span><br><span class="line">def lastimagelink(allimagelinks):</span><br><span class="line">    alldownlink = []</span><br><span class="line">    for allimagelink in allimagelinks:</span><br><span class="line">        html = url(allimagelink)</span><br><span class="line">        # page = etree.HTML(html)</span><br><span class="line">        # imagedownlink = page.xpath(u&quot;/html/body[@id=&apos;endbz&apos;]/div[@id=&apos;main&apos;]/table[@id=&apos;endimg&apos;]/tbody/tr/td/a/img/@src&quot;)</span><br><span class="line">        f = re.compile(r&apos;&lt;img src=&quot;([^\&quot;]*)&quot;&apos;, re.S)</span><br><span class="line">        imagedownlink = f.findall(html)</span><br><span class="line">        alldownlink.append(imagedownlink[1])</span><br><span class="line">    return alldownlink</span><br><span class="line">def tddown(alldownlinks):</span><br><span class="line">    tmp = []</span><br><span class="line">    i = 1</span><br><span class="line">    for alldownlink in alldownlinks:</span><br><span class="line">        downfile(alldownlink,i)</span><br><span class="line">        # print(alldownlink)</span><br><span class="line">        # t = threading.Thread(target=downfile, args=(alldownlink,i))</span><br><span class="line">        # t.setDaemon(True)</span><br><span class="line">        # t.start()</span><br><span class="line">        # tmp.append(t)</span><br><span class="line">        i += 1</span><br><span class="line">    # for i in tmp:</span><br><span class="line">    #     i.join()</span><br><span class="line">def downfile(alldownlink,i):</span><br><span class="line">    g = re.compile(r&apos;[0-9]&#123;4&#125;/([A-Za-z0-9]+\.jpg)&apos;, re.S)</span><br><span class="line">    filename = g.findall(alldownlink)</span><br><span class="line">    a,b = urllib.request.urlretrieve(alldownlink,filename[0])</span><br><span class="line">    print(&quot;第&quot;+str(i)+&quot;张图片下载成功！&quot;)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    myurl = &quot;http://www.netbian.com/s/wlop/index.htm&quot;</span><br><span class="line">    html = url(myurl)</span><br><span class="line">    allpagenum = nextpageurl(html)</span><br><span class="line">    pageurllist = allpageurl(allpagenum)</span><br><span class="line">    allimagelink = []</span><br><span class="line">    for i in pageurllist:</span><br><span class="line">        html = url(i)</span><br><span class="line">        imageurl = getlink(html)</span><br><span class="line">        for j in imageurl:</span><br><span class="line">            j = re.sub(r&apos;.htm&apos;,&quot;-1920x1080.htm&quot;,j)</span><br><span class="line">            j = &quot;http://www.netbian.com&quot; + j</span><br><span class="line">            allimagelink.append(j)</span><br><span class="line">    alldownlink = lastimagelink(allimagelink)</span><br><span class="line">    tddown(alldownlink)</span><br><span class="line">    # imageurl = getlink(html)</span><br><span class="line">    # print(imageurl)</span><br><span class="line">#http://www.netbian.com</span><br><span class="line">#-1920x1080.htm</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;都是比较简单的内容，我就不建项目了，直接上代码了，还有大佬说为啥不用多线程，我注释里有多线程的代码，你取消注释就好了，但是我每次多线程下载到一半就出错了，所以还是用了urlretrieve安稳下载了，速度也挺快的。&lt;/p&gt;
+&lt;/blockquote
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
+    
+      <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>Python爬虫爬取微软官方Windows_10_ISO镜像文件</title>
