@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.imzhangao.com/"/>
-  <updated>2018-09-02T14:01:18.474Z</updated>
+  <updated>2018-09-03T12:56:59.213Z</updated>
   <id>https://www.imzhangao.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python破解百度云限速</title>
+    <link href="https://www.imzhangao.com/2018/09/03/Python%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E4%BA%91%E9%99%90%E9%80%9F/"/>
+    <id>https://www.imzhangao.com/2018/09/03/Python破解百度云限速/</id>
+    <published>2018-09-03T10:16:03.251Z</published>
+    <updated>2018-09-03T12:56:59.213Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、破解百度云的网页大文件下载限制"><a href="#一、破解百度云的网页大文件下载限制" class="headerlink" title="一、破解百度云的网页大文件下载限制"></a>一、破解百度云的网页大文件下载限制</h1><blockquote><p>百度云网页下载大文件会让你打开客服端下载，网页不提供下载链接，以前有一个“一行js代码破解百度云大文件下载限制”的方法，有大佬还用这个BUG做了Chrome浏览器的插件，但是百度云更新后就将该BUG修复了，所以现在这个方法用不了了，插件也就用不了了。</p></blockquote><blockquote><p>我们就只能用最原始的方法也是最好用的方法来获取它大文件的下载链接。</p></blockquote><blockquote><p>首先打开网页百度云，然后登陆进去</p></blockquote><blockquote><p>然后按F12打开开发者工具，然后选中里面的Network，然后选择它下面的All</p></blockquote><p><img src="/img/baiduyun1.png"></p><blockquote><p>然后按F5刷新界面，你就会看见下面的Network里面多了很多东西比如ajax请求等等，当加载到如下图中那个js时应该就加载完了</p></blockquote><p><img src="/img/baiduyun2.png"></p><blockquote><p>然后不要关开发者界面，在上面的网页中点击下载你要下载的资源</p></blockquote><p><img src="/img/baiduyun3.png"></p><blockquote><p>然后你就会发现Network里面又刷新了几个ajax，然后找到下图中download开头的那个ajax请求</p></blockquote><p><img src="/img/baiduyun4.png"></p><blockquote><p>然后点击它，右边就有他返回的数据，展开就能看到一个dlink，dlink里的链接就是我们的文件下载链接</p></blockquote><p><img src="/img/baiduyun5.png"></p><blockquote><p>最后将链接复制到浏览器地址窗口或者迅雷里面就可以下载了</p></blockquote><p><img src="/img/baiduyun6.png"></p><h1 id="二、百度云下载限速破解"><a href="#二、百度云下载限速破解" class="headerlink" title="二、百度云下载限速破解"></a>二、百度云下载限速破解</h1><blockquote><p>这个方法的原文章链接我找不见了，只有代码还在，先说一下代码的原理，首先在链接的头里面分析该资源的大小，然后将大小分割成线程块（开多少个多线程就分割成多少个块），然后将每个线程里分到的块写到该块的指定位置。首先python的多线程有GIL，所以我测试的时候10M大小的文件100个线程速度最快，下面是我测试的结果，你可以将上面获取到的链接放进来就可以下载了。</p></blockquote><blockquote><p>这是测试资源在浏览器以及客服端的下载速度</p></blockquote><p><img src="/img/bdyxs1.png"><br><img src="/img/bdyxs2.png"></p><blockquote><p>然后这是该程序下载的速度（相同的资源)</p></blockquote><p><img src="/img/bdyxs3.png"></p><blockquote><p>对下载下来的文件MD5对比</p></blockquote><p><img src="/img/bdyxs4.png"></p><blockquote><p>前两个是浏览器和客服端下载的，最后一个是该程序下载的，为啥不一样呢，前两个都是将资源直接下载下来，而该程序是分析链接头然后根据文件的名字新建一个文件，然后在往里面写入数据，当然MD5就不一样啦。但是三个文件打开，里面的资源没有一点问题，都能正常打开使用。</p></blockquote><p><img src="/img/bdyxs5.png"></p><h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import os</span><br><span class="line">import win32api</span><br><span class="line">import time</span><br><span class="line">import multiprocessing</span><br><span class="line">from multiprocessing import Process</span><br><span class="line">from tqdm import tqdm</span><br><span class="line">import tkinter</span><br><span class="line">import tkinter.messagebox</span><br><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">import threading</span><br><span class="line">j = 0</span><br><span class="line">url = &quot;下载链接填在这里&quot;</span><br><span class="line">head = requests.head(url)</span><br><span class="line">size = int(head.headers[&quot;Content-Length&quot;])</span><br><span class="line">filename = head.headers[&quot;Content-Disposition&quot;]</span><br><span class="line">print(head.headers)</span><br><span class="line">n = 100</span><br><span class="line">spos = []</span><br><span class="line">fpos = []</span><br><span class="line">persize = int(size/n)</span><br><span class="line">intsize = persize*n</span><br><span class="line">for i in range(0,intsize,persize):</span><br><span class="line">    spos.append(i)</span><br><span class="line">    fpos.append(i+persize-1)</span><br><span class="line">if persize &lt; intsize:</span><br><span class="line">    fpos[n-1] = size</span><br><span class="line">fl = re.compile(r&apos;filename=(.*)&apos;, re.S)</span><br><span class="line">filename = fl.findall(filename)</span><br><span class="line">filename = filename[0]</span><br><span class="line">fp = open(filename,&quot;wb&quot;)</span><br><span class="line">fp.close()</span><br><span class="line">fp = open(filename,&quot;rb+&quot;)</span><br><span class="line">tmp = []</span><br><span class="line">strat_time = time.time()</span><br><span class="line">def readfilesizez(filename):</span><br><span class="line">    while True:</span><br><span class="line">        downsize = os.path.getsize(filename)</span><br><span class="line">        print(downsize)</span><br><span class="line">        time.sleep(1)</span><br><span class="line">def downfile(url,spos,fpos,fp):</span><br><span class="line">    global j</span><br><span class="line">    head = &#123;&#125;</span><br><span class="line">    head[&quot;Range&quot;] = &quot;bytes=%d-%d&quot; % (spos,fpos)</span><br><span class="line">    res = requests.get(url,headers=head)</span><br><span class="line">    fp.seek(spos)</span><br><span class="line">    fp.write(res.content)</span><br><span class="line">    j+=1</span><br><span class="line">    print(j)</span><br><span class="line"># t1 = threading.Thread(target=readfilesizez, args=(filename,))</span><br><span class="line"># t1.start()</span><br><span class="line">for i in range(0,n):</span><br><span class="line">    t = threading.Thread(target=downfile, args=(url,spos[i],fpos[i],fp))</span><br><span class="line">    t.setDaemon(True)</span><br><span class="line">    t.start()</span><br><span class="line">    tmp.append(t)</span><br><span class="line">for i in tmp:</span><br><span class="line">    i.join()</span><br><span class="line">fp.close()</span><br><span class="line">close_time = time.time()</span><br><span class="line">speed = float(size)/(1000.0*(close_time-strat_time))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;spend time: %0.2f s&quot; % float(close_time-strat_time))</span><br><span class="line">print(&quot;finished... average speed: %0.2f KB/s&quot; % speed)</span><br><span class="line"># print(spos)</span><br><span class="line"># print(fpos)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一、破解百度云的网页大文件下载限制&quot;&gt;&lt;a href=&quot;#一、破解百度云的网页大文件下载限制&quot; class=&quot;headerlink&quot; title=&quot;一、破解百度云的网页大文件下载限制&quot;&gt;&lt;/a&gt;一、破解百度云的网页大文件下载限制&lt;/h1&gt;&lt;blockquote&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
+    
+      <category term="百度云" scheme="https://www.imzhangao.com/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Python爬虫爬取鬼刀的画作</title>
@@ -306,9 +334,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="Django" scheme="https://www.imzhangao.com/tags/Django/"/>
-    
       <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
+    
+      <category term="Django" scheme="https://www.imzhangao.com/tags/Django/"/>
     
   </entry>
   
