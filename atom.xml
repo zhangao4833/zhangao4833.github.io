@@ -70,32 +70,6 @@
   </entry>
   
   <entry>
-    <title>教你玩不一样的微信跳一跳小游戏</title>
-    <link href="https://www.imzhangao.com/2019/02/01/%E6%95%99%E4%BD%A0%E7%8E%A9%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%B7%B3%E4%B8%80%E8%B7%B3%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
-    <id>https://www.imzhangao.com/2019/02/01/教你玩不一样的微信跳一跳小游戏/</id>
-    <published>2019-02-01T08:18:47.351Z</published>
-    <updated>2018-04-30T09:18:14.961Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。</p><p>下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相关依赖，所以我们配置环境变量时要将pip的文件夹也配置进去，<br>将python的安装目录以及pip目录（scripts）全部放在path环境变量中就好了。</p><p>安装adb的驱动adb drvier下载下来安装就好，它的安装路径也要放在path环境变量下。</p><p>然后将数据线连到手机，手机点开应用调试，并且将开发者选项中的允许模拟点击打开，然后电脑运行cmd输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p><p>此时手机会弹出是否允许调试，点击时，你就会在命令窗口看见你的手机编号。</p><p>上面的都完成后，去GitHub下载这个程序，地址：<a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener"> 微信跳一跳</a></p><p>下载后解压出来，在他的目录下打开cmd，然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p><p>这个安装时间有点长，请耐心等待。</p><p>安装完成后在config里面找到自己的手机尺寸然后点进去，里面有个文件，外面有几个手机信号的文件夹，里面也有相同的文件，将你机型的文件替换到你屏幕尺寸的文件里面，就好了，没有你的机型的话就不要动，或者说你可以自己改改参数。</p><p>然后跳转到文件根目录，手机连上电脑，打开微信跳一跳，点击开始，然后在文件根目录打开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python wechat_jump_auto.py</span><br></pre></td></tr></table></figure></p><p>他会提示你是否adb有手机连入了，你输入y就开始自己玩了。<br><br></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。&lt;/p&gt;
-&lt;p&gt;下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>如何优雅的装B--hydra</title>
     <link href="https://www.imzhangao.com/2019/02/01/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E8%A3%85B--hydra/"/>
     <id>https://www.imzhangao.com/2019/02/01/如何优雅的装B--hydra/</id>
@@ -119,6 +93,32 @@
     
     
       <category term="Hacker series" scheme="https://www.imzhangao.com/tags/Hacker-series/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>教你玩不一样的微信跳一跳小游戏</title>
+    <link href="https://www.imzhangao.com/2019/02/01/%E6%95%99%E4%BD%A0%E7%8E%A9%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%B7%B3%E4%B8%80%E8%B7%B3%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
+    <id>https://www.imzhangao.com/2019/02/01/教你玩不一样的微信跳一跳小游戏/</id>
+    <published>2019-02-01T08:18:47.351Z</published>
+    <updated>2018-04-30T09:18:14.961Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。</p><p>下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相关依赖，所以我们配置环境变量时要将pip的文件夹也配置进去，<br>将python的安装目录以及pip目录（scripts）全部放在path环境变量中就好了。</p><p>安装adb的驱动adb drvier下载下来安装就好，它的安装路径也要放在path环境变量下。</p><p>然后将数据线连到手机，手机点开应用调试，并且将开发者选项中的允许模拟点击打开，然后电脑运行cmd输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p><p>此时手机会弹出是否允许调试，点击时，你就会在命令窗口看见你的手机编号。</p><p>上面的都完成后，去GitHub下载这个程序，地址：<a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener"> 微信跳一跳</a></p><p>下载后解压出来，在他的目录下打开cmd，然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p><p>这个安装时间有点长，请耐心等待。</p><p>安装完成后在config里面找到自己的手机尺寸然后点进去，里面有个文件，外面有几个手机信号的文件夹，里面也有相同的文件，将你机型的文件替换到你屏幕尺寸的文件里面，就好了，没有你的机型的话就不要动，或者说你可以自己改改参数。</p><p>然后跳转到文件根目录，手机连上电脑，打开微信跳一跳，点击开始，然后在文件根目录打开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python wechat_jump_auto.py</span><br></pre></td></tr></table></figure></p><p>他会提示你是否adb有手机连入了，你输入y就开始自己玩了。<br><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。&lt;/p&gt;
+&lt;p&gt;下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
   </entry>
   
@@ -264,9 +264,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
-    
       <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
     
   </entry>
   
@@ -350,9 +350,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
-    
       <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
     
   </entry>
   
@@ -382,9 +382,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
-    
       <category term="Django" scheme="https://www.imzhangao.com/tags/Django/"/>
+    
+      <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
     
   </entry>
   
