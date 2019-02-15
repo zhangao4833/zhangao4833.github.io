@@ -70,6 +70,32 @@
   </entry>
   
   <entry>
+    <title>教你玩不一样的微信跳一跳小游戏</title>
+    <link href="https://www.imzhangao.com/2019/02/01/%E6%95%99%E4%BD%A0%E7%8E%A9%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%B7%B3%E4%B8%80%E8%B7%B3%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
+    <id>https://www.imzhangao.com/2019/02/01/教你玩不一样的微信跳一跳小游戏/</id>
+    <published>2019-02-01T08:18:47.351Z</published>
+    <updated>2018-04-30T09:18:14.961Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。</p><p>下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相关依赖，所以我们配置环境变量时要将pip的文件夹也配置进去，<br>将python的安装目录以及pip目录（scripts）全部放在path环境变量中就好了。</p><p>安装adb的驱动adb drvier下载下来安装就好，它的安装路径也要放在path环境变量下。</p><p>然后将数据线连到手机，手机点开应用调试，并且将开发者选项中的允许模拟点击打开，然后电脑运行cmd输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p><p>此时手机会弹出是否允许调试，点击时，你就会在命令窗口看见你的手机编号。</p><p>上面的都完成后，去GitHub下载这个程序，地址：<a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener"> 微信跳一跳</a></p><p>下载后解压出来，在他的目录下打开cmd，然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p><p>这个安装时间有点长，请耐心等待。</p><p>安装完成后在config里面找到自己的手机尺寸然后点进去，里面有个文件，外面有几个手机信号的文件夹，里面也有相同的文件，将你机型的文件替换到你屏幕尺寸的文件里面，就好了，没有你的机型的话就不要动，或者说你可以自己改改参数。</p><p>然后跳转到文件根目录，手机连上电脑，打开微信跳一跳，点击开始，然后在文件根目录打开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python wechat_jump_auto.py</span><br></pre></td></tr></table></figure></p><p>他会提示你是否adb有手机连入了，你输入y就开始自己玩了。<br><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。&lt;/p&gt;
+&lt;p&gt;下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何优雅的装B--hydra</title>
     <link href="https://www.imzhangao.com/2019/02/01/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E8%A3%85B--hydra/"/>
     <id>https://www.imzhangao.com/2019/02/01/如何优雅的装B--hydra/</id>
@@ -93,32 +119,6 @@
     
     
       <category term="Hacker series" scheme="https://www.imzhangao.com/tags/Hacker-series/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>教你玩不一样的微信跳一跳小游戏</title>
-    <link href="https://www.imzhangao.com/2019/02/01/%E6%95%99%E4%BD%A0%E7%8E%A9%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%B7%B3%E4%B8%80%E8%B7%B3%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
-    <id>https://www.imzhangao.com/2019/02/01/教你玩不一样的微信跳一跳小游戏/</id>
-    <published>2019-02-01T08:18:47.351Z</published>
-    <updated>2018-04-30T09:18:14.961Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。</p><p>下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相关依赖，所以我们配置环境变量时要将pip的文件夹也配置进去，<br>将python的安装目录以及pip目录（scripts）全部放在path环境变量中就好了。</p><p>安装adb的驱动adb drvier下载下来安装就好，它的安装路径也要放在path环境变量下。</p><p>然后将数据线连到手机，手机点开应用调试，并且将开发者选项中的允许模拟点击打开，然后电脑运行cmd输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p><p>此时手机会弹出是否允许调试，点击时，你就会在命令窗口看见你的手机编号。</p><p>上面的都完成后，去GitHub下载这个程序，地址：<a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener"> 微信跳一跳</a></p><p>下载后解压出来，在他的目录下打开cmd，然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p><p>这个安装时间有点长，请耐心等待。</p><p>安装完成后在config里面找到自己的手机尺寸然后点进去，里面有个文件，外面有几个手机信号的文件夹，里面也有相同的文件，将你机型的文件替换到你屏幕尺寸的文件里面，就好了，没有你的机型的话就不要动，或者说你可以自己改改参数。</p><p>然后跳转到文件根目录，手机连上电脑，打开微信跳一跳，点击开始，然后在文件根目录打开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python wechat_jump_auto.py</span><br></pre></td></tr></table></figure></p><p>他会提示你是否adb有手机连入了，你输入y就开始自己玩了。<br><br></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;首先这个程序是用python写的，那么肯定第一步就是安装python的环境了，python官网给我们提供了两个下载的版本，我们下载python2.7.x的版本。&lt;/p&gt;
-&lt;p&gt;下载下来安装就好，然后就是配置python的环境变量，我们要用到python的pip来安装程序的相
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
   </entry>
   
@@ -210,35 +210,6 @@
   </entry>
   
   <entry>
-    <title>Python爬虫爬取鬼刀的画作</title>
-    <link href="https://www.imzhangao.com/2019/02/01/Python%E7%88%AC%E8%99%AB%E7%88%AC%E5%8F%96%E9%AC%BC%E5%88%80%E7%9A%84%E7%94%BB%E4%BD%9C/"/>
-    <id>https://www.imzhangao.com/2019/02/01/Python爬虫爬取鬼刀的画作/</id>
-    <published>2019-02-01T08:18:47.304Z</published>
-    <updated>2018-09-02T14:01:18.474Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>都是比较简单的内容，我就不建项目了，直接上代码了，还有大佬说为啥不用多线程，我注释里有多线程的代码，你取消注释就好了，但是我每次多线程下载到一半就出错了，所以还是用了urlretrieve安稳下载了，速度也挺快的。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from lxml import etree</span><br><span class="line">import re</span><br><span class="line">import threading</span><br><span class="line">def url(url):</span><br><span class="line">    header = &#123;&quot;User-Agent&quot;: &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;&quot;&#125;</span><br><span class="line">    requests = urllib.request.Request(url,headers=header)</span><br><span class="line">    response = urllib.request.urlopen(requests)</span><br><span class="line">    html = response.read().decode(&quot;GBK&quot;)</span><br><span class="line">    return html</span><br><span class="line">def getlink(html):</span><br><span class="line">    page = etree.HTML(html)</span><br><span class="line">    imageurl = page.xpath(u&quot;/html/body/div[@id=&apos;main&apos;]/div[@class=&apos;list&apos;]/ul/li/a/@href&quot;)</span><br><span class="line">    return imageurl</span><br><span class="line">def nextpageurl(html):</span><br><span class="line">    page = etree.HTML(html)</span><br><span class="line">    next = page.xpath(u&quot;/html/body/div[@id=&apos;main&apos;]/div[@class=&apos;page&apos;]/a&quot;)</span><br><span class="line">    allpage = len(next)</span><br><span class="line">    return allpage</span><br><span class="line">def allpageurl(num):</span><br><span class="line">    pageurllist = [&apos;http://www.netbian.com/s/wlop/index.htm&apos;,]</span><br><span class="line">    for i in range(2,num + 1):</span><br><span class="line">        url = &quot;http://www.netbian.com/s/wlop/index_&quot;+str(i)+&quot;.htm&quot;</span><br><span class="line">        pageurllist.append(url)</span><br><span class="line">    return pageurllist</span><br><span class="line">def lastimagelink(allimagelinks):</span><br><span class="line">    alldownlink = []</span><br><span class="line">    for allimagelink in allimagelinks:</span><br><span class="line">        html = url(allimagelink)</span><br><span class="line">        # page = etree.HTML(html)</span><br><span class="line">        # imagedownlink = page.xpath(u&quot;/html/body[@id=&apos;endbz&apos;]/div[@id=&apos;main&apos;]/table[@id=&apos;endimg&apos;]/tbody/tr/td/a/img/@src&quot;)</span><br><span class="line">        f = re.compile(r&apos;&lt;img src=&quot;([^\&quot;]*)&quot;&apos;, re.S)</span><br><span class="line">        imagedownlink = f.findall(html)</span><br><span class="line">        alldownlink.append(imagedownlink[1])</span><br><span class="line">    return alldownlink</span><br><span class="line">def tddown(alldownlinks):</span><br><span class="line">    tmp = []</span><br><span class="line">    i = 1</span><br><span class="line">    for alldownlink in alldownlinks:</span><br><span class="line">        downfile(alldownlink,i)</span><br><span class="line">        # print(alldownlink)</span><br><span class="line">        # t = threading.Thread(target=downfile, args=(alldownlink,i))</span><br><span class="line">        # t.setDaemon(True)</span><br><span class="line">        # t.start()</span><br><span class="line">        # tmp.append(t)</span><br><span class="line">        i += 1</span><br><span class="line">    # for i in tmp:</span><br><span class="line">    #     i.join()</span><br><span class="line">def downfile(alldownlink,i):</span><br><span class="line">    g = re.compile(r&apos;[0-9]&#123;4&#125;/([A-Za-z0-9]+\.jpg)&apos;, re.S)</span><br><span class="line">    filename = g.findall(alldownlink)</span><br><span class="line">    a,b = urllib.request.urlretrieve(alldownlink,filename[0])</span><br><span class="line">    print(&quot;第&quot;+str(i)+&quot;张图片下载成功！&quot;)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    myurl = &quot;http://www.netbian.com/s/wlop/index.htm&quot;</span><br><span class="line">    html = url(myurl)</span><br><span class="line">    allpagenum = nextpageurl(html)</span><br><span class="line">    pageurllist = allpageurl(allpagenum)</span><br><span class="line">    allimagelink = []</span><br><span class="line">    for i in pageurllist:</span><br><span class="line">        html = url(i)</span><br><span class="line">        imageurl = getlink(html)</span><br><span class="line">        for j in imageurl:</span><br><span class="line">            j = re.sub(r&apos;.htm&apos;,&quot;-1920x1080.htm&quot;,j)</span><br><span class="line">            j = &quot;http://www.netbian.com&quot; + j</span><br><span class="line">            allimagelink.append(j)</span><br><span class="line">    alldownlink = lastimagelink(allimagelink)</span><br><span class="line">    tddown(alldownlink)</span><br><span class="line">    # imageurl = getlink(html)</span><br><span class="line">    # print(imageurl)</span><br><span class="line">#http://www.netbian.com</span><br><span class="line">#-1920x1080.htm</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;都是比较简单的内容，我就不建项目了，直接上代码了，还有大佬说为啥不用多线程，我注释里有多线程的代码，你取消注释就好了，但是我每次多线程下载到一半就出错了，所以还是用了urlretrieve安稳下载了，速度也挺快的。&lt;/p&gt;
-&lt;/blockquote
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
-    
-      <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>python爬虫以及Scrapy框架的使用</title>
     <link href="https://www.imzhangao.com/2019/02/01/python%E7%88%AC%E8%99%AB%E4%BB%A5%E5%8F%8AScrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>https://www.imzhangao.com/2019/02/01/python爬虫以及Scrapy框架的使用/</id>
@@ -296,6 +267,35 @@
       <category term="Windows10" scheme="https://www.imzhangao.com/tags/Windows10/"/>
     
       <category term="微软" scheme="https://www.imzhangao.com/tags/%E5%BE%AE%E8%BD%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫爬取鬼刀的画作</title>
+    <link href="https://www.imzhangao.com/2019/02/01/Python%E7%88%AC%E8%99%AB%E7%88%AC%E5%8F%96%E9%AC%BC%E5%88%80%E7%9A%84%E7%94%BB%E4%BD%9C/"/>
+    <id>https://www.imzhangao.com/2019/02/01/Python爬虫爬取鬼刀的画作/</id>
+    <published>2019-02-01T08:18:47.304Z</published>
+    <updated>2018-09-02T14:01:18.474Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>都是比较简单的内容，我就不建项目了，直接上代码了，还有大佬说为啥不用多线程，我注释里有多线程的代码，你取消注释就好了，但是我每次多线程下载到一半就出错了，所以还是用了urlretrieve安稳下载了，速度也挺快的。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from lxml import etree</span><br><span class="line">import re</span><br><span class="line">import threading</span><br><span class="line">def url(url):</span><br><span class="line">    header = &#123;&quot;User-Agent&quot;: &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;&quot;&#125;</span><br><span class="line">    requests = urllib.request.Request(url,headers=header)</span><br><span class="line">    response = urllib.request.urlopen(requests)</span><br><span class="line">    html = response.read().decode(&quot;GBK&quot;)</span><br><span class="line">    return html</span><br><span class="line">def getlink(html):</span><br><span class="line">    page = etree.HTML(html)</span><br><span class="line">    imageurl = page.xpath(u&quot;/html/body/div[@id=&apos;main&apos;]/div[@class=&apos;list&apos;]/ul/li/a/@href&quot;)</span><br><span class="line">    return imageurl</span><br><span class="line">def nextpageurl(html):</span><br><span class="line">    page = etree.HTML(html)</span><br><span class="line">    next = page.xpath(u&quot;/html/body/div[@id=&apos;main&apos;]/div[@class=&apos;page&apos;]/a&quot;)</span><br><span class="line">    allpage = len(next)</span><br><span class="line">    return allpage</span><br><span class="line">def allpageurl(num):</span><br><span class="line">    pageurllist = [&apos;http://www.netbian.com/s/wlop/index.htm&apos;,]</span><br><span class="line">    for i in range(2,num + 1):</span><br><span class="line">        url = &quot;http://www.netbian.com/s/wlop/index_&quot;+str(i)+&quot;.htm&quot;</span><br><span class="line">        pageurllist.append(url)</span><br><span class="line">    return pageurllist</span><br><span class="line">def lastimagelink(allimagelinks):</span><br><span class="line">    alldownlink = []</span><br><span class="line">    for allimagelink in allimagelinks:</span><br><span class="line">        html = url(allimagelink)</span><br><span class="line">        # page = etree.HTML(html)</span><br><span class="line">        # imagedownlink = page.xpath(u&quot;/html/body[@id=&apos;endbz&apos;]/div[@id=&apos;main&apos;]/table[@id=&apos;endimg&apos;]/tbody/tr/td/a/img/@src&quot;)</span><br><span class="line">        f = re.compile(r&apos;&lt;img src=&quot;([^\&quot;]*)&quot;&apos;, re.S)</span><br><span class="line">        imagedownlink = f.findall(html)</span><br><span class="line">        alldownlink.append(imagedownlink[1])</span><br><span class="line">    return alldownlink</span><br><span class="line">def tddown(alldownlinks):</span><br><span class="line">    tmp = []</span><br><span class="line">    i = 1</span><br><span class="line">    for alldownlink in alldownlinks:</span><br><span class="line">        downfile(alldownlink,i)</span><br><span class="line">        # print(alldownlink)</span><br><span class="line">        # t = threading.Thread(target=downfile, args=(alldownlink,i))</span><br><span class="line">        # t.setDaemon(True)</span><br><span class="line">        # t.start()</span><br><span class="line">        # tmp.append(t)</span><br><span class="line">        i += 1</span><br><span class="line">    # for i in tmp:</span><br><span class="line">    #     i.join()</span><br><span class="line">def downfile(alldownlink,i):</span><br><span class="line">    g = re.compile(r&apos;[0-9]&#123;4&#125;/([A-Za-z0-9]+\.jpg)&apos;, re.S)</span><br><span class="line">    filename = g.findall(alldownlink)</span><br><span class="line">    a,b = urllib.request.urlretrieve(alldownlink,filename[0])</span><br><span class="line">    print(&quot;第&quot;+str(i)+&quot;张图片下载成功！&quot;)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    myurl = &quot;http://www.netbian.com/s/wlop/index.htm&quot;</span><br><span class="line">    html = url(myurl)</span><br><span class="line">    allpagenum = nextpageurl(html)</span><br><span class="line">    pageurllist = allpageurl(allpagenum)</span><br><span class="line">    allimagelink = []</span><br><span class="line">    for i in pageurllist:</span><br><span class="line">        html = url(i)</span><br><span class="line">        imageurl = getlink(html)</span><br><span class="line">        for j in imageurl:</span><br><span class="line">            j = re.sub(r&apos;.htm&apos;,&quot;-1920x1080.htm&quot;,j)</span><br><span class="line">            j = &quot;http://www.netbian.com&quot; + j</span><br><span class="line">            allimagelink.append(j)</span><br><span class="line">    alldownlink = lastimagelink(allimagelink)</span><br><span class="line">    tddown(alldownlink)</span><br><span class="line">    # imageurl = getlink(html)</span><br><span class="line">    # print(imageurl)</span><br><span class="line">#http://www.netbian.com</span><br><span class="line">#-1920x1080.htm</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;都是比较简单的内容，我就不建项目了，直接上代码了，还有大佬说为啥不用多线程，我注释里有多线程的代码，你取消注释就好了，但是我每次多线程下载到一半就出错了，所以还是用了urlretrieve安稳下载了，速度也挺快的。&lt;/p&gt;
+&lt;/blockquote
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.imzhangao.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
+    
+      <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -389,34 +389,6 @@
   </entry>
   
   <entry>
-    <title>HEXO安装hexo-helper-live2d插件遇到的问题</title>
-    <link href="https://www.imzhangao.com/2019/02/01/HEXO%E5%AE%89%E8%A3%85hexo-helper-live2d%E6%8F%92%E4%BB%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://www.imzhangao.com/2019/02/01/HEXO安装hexo-helper-live2d插件遇到的问题/</id>
-    <published>2019-02-01T08:18:47.226Z</published>
-    <updated>2018-05-06T13:19:04.036Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote><p>hexo-helper-live2d 是一个HEXO的插件，俗称2D面板娘，它的github地址在这里大家可以去看看：<a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">hexo-helper-live2d</a>,里面有它的安装方法和一些设置。</p></blockquote><blockquote><p>在你的网站中如果有使用lunr的话，那么在用npm install安装，不管是安装它的环境还是面板娘的模型都会出现安装后本地调试的时候出现找不到lunr的错误提示，但是你的本地网页是能打开的，面板娘也是能正确显示的，但网站里面的搜索用不了了，这就是lunr找不到引发的问题。</p></blockquote><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>首先我用对比看了下安装后改了哪些文件，对比后发现，少了两个关键的文件夹。</p><p><img src="/img/2d-nodejieba.png"></p><p><img src="/img/2d-lunr.png"></p><p>这两个文件夹就是关键，在用npm install的时候自动把它们删除了，我也不知道为什么，你把它备份一份然后安装后又copy回去就好了。</p><p>还有在 package-lock.json 文件中关于那两个文件夹的内容也被删除了，但是你在把文件夹copy回去然后本地调试的时候应该会自动生成的，如果没有生成，你就把少的内容自己再copy回去。</p><p><img src="/img/2d-nodejieba-json.png"></p><p><img src="/img/2d-lunr-json.png"></p><h2 id="下面这个算是优化"><a href="#下面这个算是优化" class="headerlink" title="下面这个算是优化"></a>下面这个算是优化</h2><blockquote><p>如果你的网页在安装了2d面板娘后，发现在网页加载的时候2d娘加载的一瞬间你的网站动画会一卡一卡的，这就要改一下2d面板娘加载的时间了。</p></blockquote><blockquote><p>在文件 HEXO根目录\node_modules\hexo-helper-live2d\index.js 将这一句代码</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const scriptToInject = `L2Dwidget.init($&#123;JSON.stringify(config)&#125;);`;</span><br></pre></td></tr></table></figure><p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const scriptToInject = `setTimeout(function ()&#123;L2Dwidget.init($&#123;JSON.stringify(config)&#125;)&#125;, 1500);`;</span><br></pre></td></tr></table></figure></p><p>这主要就是给它的加载设置了个1.5s的延时，这样就能错开它与网站动画加载的时间，就不会一卡一卡的了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;hexo-helper-live2d 是一个HEXO的插件，俗称2D面板娘，它的github地址在这里大家可以去看
-      
-    
-    </summary>
-    
-      <category term="HEXO" scheme="https://www.imzhangao.com/categories/HEXO/"/>
-    
-    
-      <category term="HEXO" scheme="https://www.imzhangao.com/tags/HEXO/"/>
-    
-      <category term="live2d" scheme="https://www.imzhangao.com/tags/live2d/"/>
-    
-  </entry>
-  
-  <entry>
     <title>js在Cookie中取值乱码问题</title>
     <link href="https://www.imzhangao.com/2019/02/01/js%E5%9C%A8cookie%E4%B8%AD%E5%8F%96%E5%80%BC%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
     <id>https://www.imzhangao.com/2019/02/01/js在cookie中取值乱码问题/</id>
@@ -441,6 +413,34 @@
       <category term="JavaScript" scheme="https://www.imzhangao.com/tags/JavaScript/"/>
     
       <category term="Cookie" scheme="https://www.imzhangao.com/tags/Cookie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO安装hexo-helper-live2d插件遇到的问题</title>
+    <link href="https://www.imzhangao.com/2019/02/01/HEXO%E5%AE%89%E8%A3%85hexo-helper-live2d%E6%8F%92%E4%BB%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.imzhangao.com/2019/02/01/HEXO安装hexo-helper-live2d插件遇到的问题/</id>
+    <published>2019-02-01T08:18:47.226Z</published>
+    <updated>2018-05-06T13:19:04.036Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote><p>hexo-helper-live2d 是一个HEXO的插件，俗称2D面板娘，它的github地址在这里大家可以去看看：<a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">hexo-helper-live2d</a>,里面有它的安装方法和一些设置。</p></blockquote><blockquote><p>在你的网站中如果有使用lunr的话，那么在用npm install安装，不管是安装它的环境还是面板娘的模型都会出现安装后本地调试的时候出现找不到lunr的错误提示，但是你的本地网页是能打开的，面板娘也是能正确显示的，但网站里面的搜索用不了了，这就是lunr找不到引发的问题。</p></blockquote><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>首先我用对比看了下安装后改了哪些文件，对比后发现，少了两个关键的文件夹。</p><p><img src="/img/2d-nodejieba.png"></p><p><img src="/img/2d-lunr.png"></p><p>这两个文件夹就是关键，在用npm install的时候自动把它们删除了，我也不知道为什么，你把它备份一份然后安装后又copy回去就好了。</p><p>还有在 package-lock.json 文件中关于那两个文件夹的内容也被删除了，但是你在把文件夹copy回去然后本地调试的时候应该会自动生成的，如果没有生成，你就把少的内容自己再copy回去。</p><p><img src="/img/2d-nodejieba-json.png"></p><p><img src="/img/2d-lunr-json.png"></p><h2 id="下面这个算是优化"><a href="#下面这个算是优化" class="headerlink" title="下面这个算是优化"></a>下面这个算是优化</h2><blockquote><p>如果你的网页在安装了2d面板娘后，发现在网页加载的时候2d娘加载的一瞬间你的网站动画会一卡一卡的，这就要改一下2d面板娘加载的时间了。</p></blockquote><blockquote><p>在文件 HEXO根目录\node_modules\hexo-helper-live2d\index.js 将这一句代码</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const scriptToInject = `L2Dwidget.init($&#123;JSON.stringify(config)&#125;);`;</span><br></pre></td></tr></table></figure><p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const scriptToInject = `setTimeout(function ()&#123;L2Dwidget.init($&#123;JSON.stringify(config)&#125;)&#125;, 1500);`;</span><br></pre></td></tr></table></figure></p><p>这主要就是给它的加载设置了个1.5s的延时，这样就能错开它与网站动画加载的时间，就不会一卡一卡的了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;hexo-helper-live2d 是一个HEXO的插件，俗称2D面板娘，它的github地址在这里大家可以去看
+      
+    
+    </summary>
+    
+      <category term="HEXO" scheme="https://www.imzhangao.com/categories/HEXO/"/>
+    
+    
+      <category term="HEXO" scheme="https://www.imzhangao.com/tags/HEXO/"/>
+    
+      <category term="live2d" scheme="https://www.imzhangao.com/tags/live2d/"/>
     
   </entry>
   
