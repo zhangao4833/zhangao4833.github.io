@@ -70,6 +70,33 @@
   </entry>
   
   <entry>
+    <title>如何优雅的装B--hydra</title>
+    <link href="https://www.imzhangao.com/2019/02/01/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E8%A3%85B--hydra/"/>
+    <id>https://www.imzhangao.com/2019/02/01/如何优雅的装B--hydra/</id>
+    <published>2019-02-01T08:18:47.351Z</published>
+    <updated>2018-04-30T08:59:00.455Z</updated>
+    
+    <content type="html"><![CDATA[<p>既然都说了要优雅的装逼，那当然要装的像一点。</p><p>首先我们来介绍下hydra:</p><p>海德拉（Hydra）：希腊神话中的九头蛇，是西方的神话生物，在古希腊神话中出现最为频繁。传说它拥有九颗头，其中一颗头要是被斩断，立刻又会生出两颗头来。赫拉克勒斯运用他的智慧，成功地击败了巨大水蛇海德拉。</p><p>当然这介绍和我们要说的软件没有太大的联系，百度也没有介绍，大家要想去看看介绍的话可以点击访问他们的<a href="https://www.thc.org/" target="_blank" rel="noopener">官网</a>。</p><p>THC-HYDRA是一个支持多种网络服务的非常快速的网络登陆破解工具。这个工具是一个验证性质的工具，它被设计的主要目的是为研究人员和安全从业人员展示远程获取一个系统的认证权限是比较容易的！</p><p>我这里要做的只是演示一遍它的安装以及用法。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首先我们的环境为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centos 6.0</span><br></pre></td></tr></table></figure><p>用的阿里的服务器。</p><p>首先先下载要用到的文件:</p><p><a href="http://pan.baidu.com/s/1pLwWU6Z" target="_blank" rel="noopener">hydra</a>密码：hm6k</p><p><a href="http://pan.baidu.com/s/1kUYc7Kr" target="_blank" rel="noopener">libssh</a>密码：54ks</p><p>我们用的是xshell连接的我们的服务器，可以去百度下载。</p><p><img src="/img/11-4-1.png"></p><p>首先我们先连接上服务器，然后为了方便上传文件先安装rzsz</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lrzsz</span><br><span class="line">rz</span><br></pre></td></tr></table></figure><p>上传两个文件</p><p><img src="/img/11-4-2.png"></p><p>然后分别解压它们</p><p><img src="/img/11-4-3.png"><br><img src="/img/11-4-4.png"></p><p>进入libssh目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd libssh-0.4.8</span><br></pre></td></tr></table></figure><p>创建文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"></span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>在执行cmake的时候可能会报错（我用的阿里云的官方系统里面啥都没安装）</p><p>错误提示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-bash: cmake: command not found</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make automake </span><br><span class="line"></span><br><span class="line">yum install -y wget</span><br><span class="line"></span><br><span class="line">wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf cmake-2.8.10.2.tar.gz</span><br><span class="line"></span><br><span class="line">cd cmake-2.8.10.2</span><br><span class="line"></span><br><span class="line">./bootstrap</span><br><span class="line"></span><br><span class="line">gmake</span><br><span class="line"></span><br><span class="line">gmake install</span><br></pre></td></tr></table></figure><p>执行完后在执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>可能还会报错，我把这几个错误一起放在下面</p><p>错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at cmake/Modules/FindZLIB.cmake:76 (message):</span><br><span class="line">  Could not find ZLIB</span><br><span class="line">Call Stack (most recent call first):</span><br><span class="line">  CMakeLists.txt:47 (find_package)</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install zlib-devel</span><br></pre></td></tr></table></figure><p>错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at CMakeLists.txt:59 (message):</span><br><span class="line">  Could not find OpenSSL or GCrypt</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -f CMakeCache.txt</span><br><span class="line">yum -y install ncurses-devel</span><br><span class="line">yum install openssl-devel</span><br></pre></td></tr></table></figure><p>然后基本执行下面这条语句就不会报错了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>成功后执行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>这样libssh就安装好了，下面安装hydra</p><p>进入hydra的目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd hydra-6.3-src</span><br></pre></td></tr></table></figure><p>执行下面的指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>安装完成了，下面我们要开始装B了</p><p>首先准备好两个文件，一个放用户名的username.txt一个放密码的password.txt</p><p>我就用自己的服务器做实验了，密码文件里有正确的密码</p><p>用户名文件里放一个root就好</p><p><img src="/img/11-4-5.png"></p><p>然后上传到服务器执行指令</p><p><img src="/img/11-4-7.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -L username.txt -P password.txt -t 1 -vV -e ns IP ssh</span><br></pre></td></tr></table></figure><p>然后等待一会就能爆破成功了</p><p><img src="/img/11-4-6.png"></p><p>它还有很多的爆破协议，我就就只示范这一种就好了</p><p>大家有兴趣可以去尝试其他几种</p><p>好了装B结束</p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;既然都说了要优雅的装逼，那当然要装的像一点。&lt;/p&gt;
+&lt;p&gt;首先我们来介绍下hydra:&lt;/p&gt;
+&lt;p&gt;海德拉（Hydra）：希腊神话中的九头蛇，是西方的神话生物，在古希腊神话中出现最为频繁。传说它拥有九颗头，其中一颗头要是被斩断，立刻又会生出两颗头来。赫拉克勒斯运用他的智
+      
+    
+    </summary>
+    
+      <category term="随笔记" scheme="https://www.imzhangao.com/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Hacker series" scheme="https://www.imzhangao.com/tags/Hacker-series/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于PHP+MySQL+bootstrap的宾馆管理系统</title>
     <link href="https://www.imzhangao.com/2019/02/01/%E5%9F%BA%E4%BA%8EPHP+MySQL+bootstrap%E7%9A%84%E5%AE%BE%E9%A6%86%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"/>
     <id>https://www.imzhangao.com/2019/02/01/基于PHP+MySQL+bootstrap的宾馆管理系统/</id>
@@ -100,33 +127,6 @@
       <category term="MySQL" scheme="https://www.imzhangao.com/tags/MySQL/"/>
     
       <category term="bootstrap" scheme="https://www.imzhangao.com/tags/bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何优雅的装B--hydra</title>
-    <link href="https://www.imzhangao.com/2019/02/01/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E8%A3%85B--hydra/"/>
-    <id>https://www.imzhangao.com/2019/02/01/如何优雅的装B--hydra/</id>
-    <published>2019-02-01T08:18:47.351Z</published>
-    <updated>2018-04-30T08:59:00.455Z</updated>
-    
-    <content type="html"><![CDATA[<p>既然都说了要优雅的装逼，那当然要装的像一点。</p><p>首先我们来介绍下hydra:</p><p>海德拉（Hydra）：希腊神话中的九头蛇，是西方的神话生物，在古希腊神话中出现最为频繁。传说它拥有九颗头，其中一颗头要是被斩断，立刻又会生出两颗头来。赫拉克勒斯运用他的智慧，成功地击败了巨大水蛇海德拉。</p><p>当然这介绍和我们要说的软件没有太大的联系，百度也没有介绍，大家要想去看看介绍的话可以点击访问他们的<a href="https://www.thc.org/" target="_blank" rel="noopener">官网</a>。</p><p>THC-HYDRA是一个支持多种网络服务的非常快速的网络登陆破解工具。这个工具是一个验证性质的工具，它被设计的主要目的是为研究人员和安全从业人员展示远程获取一个系统的认证权限是比较容易的！</p><p>我这里要做的只是演示一遍它的安装以及用法。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首先我们的环境为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centos 6.0</span><br></pre></td></tr></table></figure><p>用的阿里的服务器。</p><p>首先先下载要用到的文件:</p><p><a href="http://pan.baidu.com/s/1pLwWU6Z" target="_blank" rel="noopener">hydra</a>密码：hm6k</p><p><a href="http://pan.baidu.com/s/1kUYc7Kr" target="_blank" rel="noopener">libssh</a>密码：54ks</p><p>我们用的是xshell连接的我们的服务器，可以去百度下载。</p><p><img src="/img/11-4-1.png"></p><p>首先我们先连接上服务器，然后为了方便上传文件先安装rzsz</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lrzsz</span><br><span class="line">rz</span><br></pre></td></tr></table></figure><p>上传两个文件</p><p><img src="/img/11-4-2.png"></p><p>然后分别解压它们</p><p><img src="/img/11-4-3.png"><br><img src="/img/11-4-4.png"></p><p>进入libssh目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd libssh-0.4.8</span><br></pre></td></tr></table></figure><p>创建文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line"></span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>在执行cmake的时候可能会报错（我用的阿里云的官方系统里面啥都没安装）</p><p>错误提示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-bash: cmake: command not found</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make automake </span><br><span class="line"></span><br><span class="line">yum install -y wget</span><br><span class="line"></span><br><span class="line">wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf cmake-2.8.10.2.tar.gz</span><br><span class="line"></span><br><span class="line">cd cmake-2.8.10.2</span><br><span class="line"></span><br><span class="line">./bootstrap</span><br><span class="line"></span><br><span class="line">gmake</span><br><span class="line"></span><br><span class="line">gmake install</span><br></pre></td></tr></table></figure><p>执行完后在执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>可能还会报错，我把这几个错误一起放在下面</p><p>错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at cmake/Modules/FindZLIB.cmake:76 (message):</span><br><span class="line">  Could not find ZLIB</span><br><span class="line">Call Stack (most recent call first):</span><br><span class="line">  CMakeLists.txt:47 (find_package)</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install zlib-devel</span><br></pre></td></tr></table></figure><p>错误：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at CMakeLists.txt:59 (message):</span><br><span class="line">  Could not find OpenSSL or GCrypt</span><br></pre></td></tr></table></figure><p>解决方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -f CMakeCache.txt</span><br><span class="line">yum -y install ncurses-devel</span><br><span class="line">yum install openssl-devel</span><br></pre></td></tr></table></figure><p>然后基本执行下面这条语句就不会报错了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug -DWITH_SSH1=ON ..</span><br></pre></td></tr></table></figure><p>成功后执行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>这样libssh就安装好了，下面安装hydra</p><p>进入hydra的目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd hydra-6.3-src</span><br></pre></td></tr></table></figure><p>执行下面的指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>安装完成了，下面我们要开始装B了</p><p>首先准备好两个文件，一个放用户名的username.txt一个放密码的password.txt</p><p>我就用自己的服务器做实验了，密码文件里有正确的密码</p><p>用户名文件里放一个root就好</p><p><img src="/img/11-4-5.png"></p><p>然后上传到服务器执行指令</p><p><img src="/img/11-4-7.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -L username.txt -P password.txt -t 1 -vV -e ns IP ssh</span><br></pre></td></tr></table></figure><p>然后等待一会就能爆破成功了</p><p><img src="/img/11-4-6.png"></p><p>它还有很多的爆破协议，我就就只示范这一种就好了</p><p>大家有兴趣可以去尝试其他几种</p><p>好了装B结束</p><p><br></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;既然都说了要优雅的装逼，那当然要装的像一点。&lt;/p&gt;
-&lt;p&gt;首先我们来介绍下hydra:&lt;/p&gt;
-&lt;p&gt;海德拉（Hydra）：希腊神话中的九头蛇，是西方的神话生物，在古希腊神话中出现最为频繁。传说它拥有九颗头，其中一颗头要是被斩断，立刻又会生出两颗头来。赫拉克勒斯运用他的智
-      
-    
-    </summary>
-    
-      <category term="随笔记" scheme="https://www.imzhangao.com/categories/%E9%9A%8F%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Hacker series" scheme="https://www.imzhangao.com/tags/Hacker-series/"/>
     
   </entry>
   
@@ -210,20 +210,19 @@
   </entry>
   
   <entry>
-    <title>Python爬虫爬取微软官方Windows_10_ISO镜像文件</title>
-    <link href="https://www.imzhangao.com/2019/02/01/Python%E7%88%AC%E8%99%AB%E7%88%AC%E5%8F%96%E5%BE%AE%E8%BD%AF%E5%AE%98%E6%96%B9Windows_10_ISO%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6/"/>
-    <id>https://www.imzhangao.com/2019/02/01/Python爬虫爬取微软官方Windows_10_ISO镜像文件/</id>
+    <title>python爬虫以及Scrapy框架的使用</title>
+    <link href="https://www.imzhangao.com/2019/02/01/python%E7%88%AC%E8%99%AB%E4%BB%A5%E5%8F%8AScrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://www.imzhangao.com/2019/02/01/python爬虫以及Scrapy框架的使用/</id>
     <published>2019-02-01T08:18:47.304Z</published>
-    <updated>2018-09-02T06:30:57.804Z</updated>
+    <updated>2018-06-18T14:12:53.066Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h1><blockquote><p>该爬虫没有采用Scrapy框架，只是采用简单的request+selenium以及前端可视化界面的PyQt5，如果你认为网上的系统不是很干净，MSDN里面的系统又比较的旧，没有新的版本，那你就可以尝试使用该软件，也可以优化或更改它</p></blockquote><blockquote><p>为什么要用selenium呢，我发现他官网属性里有个input标签并不是静态加载的，而是动态加载的，当然后面还有很多动态的ajax加载，但是这个input标签不一样，我分析了它的ajax全部加载项，很难发现他的value值在哪加进去的，这个value值十分重要，它将会是后面ajax请求的重要参数，所以我采用selenium配合chromedriver等他js加载完了之后再去获取界面的标签就可以了，当然可能分析js能抓到它的值，我没有详细的去看，selenium以及提供很简单的方法，并不用那么复杂。</p></blockquote><blockquote><p>后面选择语言、版本、位数选项都是采用的ajax请求去做的，我就采用简单的url拼接的方式去获取返回值，再根据返回值构建新的url，直到获取到Windows的ISO下载链接为止。</p></blockquote><blockquote><p>在这里提醒下，微软官网有访问限制，如果频繁访问的话就会返回请求不到链接的情况，这是IP屏蔽，我在界面里也加了判断，如果你获取不到请求了会提示你的，但是不用担心，就算被屏蔽了，过几个小时就又可以访问了（由于测试要不停的访问，我可是牺牲了好几个酸酸乳）</p></blockquote><blockquote><p>有大佬会问为啥不用代理，我感觉没必要，ISO获取一次就OK了，谁没事干一直获取它的链接完，你获取一个链接下载就好了</p></blockquote><blockquote><p>在下载模块这边刚开始使用了网上的有个多线程下载的方式（后面我会贴出来，可以破解百度云的下载限速），但是我发现了两点意外情况，第一点python的多线程有个全局解释器锁（GIL），有兴趣的可以百度详细去看一下，我在测试10M大小的文件时，最快下载速度是当线程开到100的时候，当你在添加线程数的话它的速度反而会下降，第二点，文件大概有4G左右大小，他这个多线程的原理就是先在链接头里获取文件的大小，然后将大小分割成线程块（几个线程就几块）然后每个线程将分配到自己的块写入指定位置，但是如果文件太大的话就算分割了还是比较的大，线程的下载速度还是很慢，如果启动太多线程就会有第一点的问题，同时线程太多也会引起很多错误，我没仔细分析错误，因为我认为自己的宽带速度才是关键，微软官网对于下载并没有限速，我用酸酸乳下载挺快的，那该多线程下载方法就只能针对限速的链接，像这种没限速的，自己的宽带速度才是关键，不管你开多少线程，网速还是那样。所以我采用了简单的下载模块urlretrieve</p></blockquote><blockquote><p>就是因为微软的服务器可能不在中国，所以下载速度很慢，挂个酸酸乳就快了，我也在界面里将获取到的链接放出来了，嫌下载慢的，可以点击复制链接，自己去其他下载器下载</p></blockquote><blockquote><p>我用的chromedriver版本是v2.41，它所支持的Chrome版本为v67-69，大家可以自行下载或者替换chromedriver与Chrome浏览器</p></blockquote><blockquote><p>前端界面采用的是Qt Creator 4.6.2 (Enterprise)和pycharm配合产生的界面，不会配置的可以百度下</p></blockquote><blockquote><p>该项目的源码以及打包后的exe文件发布在github中:<a href="https://github.com/zhangao4833/Microsoft_win10ISO" target="_blank" rel="noopener">点击此进入项目</a></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><p>百度云盘：<a href="https://pan.baidu.com/s/1ditOInC07pgsYRAMjxUWgA" target="_blank" rel="noopener">链接</a> 密码：fc0l</p><h2 id="爬取腾讯社招首页数据并自动翻页自动保存"><a href="#爬取腾讯社招首页数据并自动翻页自动保存" class="headerlink" title="爬取腾讯社招首页数据并自动翻页自动保存"></a>爬取腾讯社招首页数据并自动翻页自动保存</h2><p>项目仓库：<a href="https://github.com/zhangao4833/A-reptile---a-Tencent-recruit" target="_blank" rel="noopener">A-reptile—a-Tencent-recruit</a></p><h2 id="爬取mzitu-com的首页全部图片并自动翻页自动保存"><a href="#爬取mzitu-com的首页全部图片并自动翻页自动保存" class="headerlink" title="爬取mzitu.com的首页全部图片并自动翻页自动保存"></a>爬取mzitu.com的首页全部图片并自动翻页自动保存</h2><p>项目仓库：<a href="https://github.com/zhangao4833/A-reptile---a-mzitu.com" target="_blank" rel="noopener">A-reptile—a-mzitu.com</a></p><blockquote><p>关于这些项目要注意的地方我都写在了仓库README里面，这里我就不单独一个一个说了，还有这里不定时更新（啥时候写出来一个就更新一个|滑稽.jpg）</p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;简单说明&quot;&gt;&lt;a href=&quot;#简单说明&quot; class=&quot;headerlink&quot; title=&quot;简单说明&quot;&gt;&lt;/a&gt;简单说明&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;该爬虫没有采用Scrapy框架，只是采用简单的request+selenium以及前端可视化界面的
+        &lt;h2 id=&quot;学习资源&quot;&gt;&lt;a href=&quot;#学习资源&quot; class=&quot;headerlink&quot; title=&quot;学习资源&quot;&gt;&lt;/a&gt;学习资源&lt;/h2&gt;&lt;p&gt;百度云盘：&lt;a href=&quot;https://pan.baidu.com/s/1ditOInC07pgsYRAMjxUWgA&quot;
       
     
     </summary>
@@ -233,11 +232,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
+      <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
+    
       <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="Windows10" scheme="https://www.imzhangao.com/tags/Windows10/"/>
-    
-      <category term="微软" scheme="https://www.imzhangao.com/tags/%E5%BE%AE%E8%BD%AF/"/>
     
   </entry>
   
@@ -271,19 +268,20 @@
   </entry>
   
   <entry>
-    <title>python爬虫以及Scrapy框架的使用</title>
-    <link href="https://www.imzhangao.com/2019/02/01/python%E7%88%AC%E8%99%AB%E4%BB%A5%E5%8F%8AScrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://www.imzhangao.com/2019/02/01/python爬虫以及Scrapy框架的使用/</id>
+    <title>Python爬虫爬取微软官方Windows_10_ISO镜像文件</title>
+    <link href="https://www.imzhangao.com/2019/02/01/Python%E7%88%AC%E8%99%AB%E7%88%AC%E5%8F%96%E5%BE%AE%E8%BD%AF%E5%AE%98%E6%96%B9Windows_10_ISO%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6/"/>
+    <id>https://www.imzhangao.com/2019/02/01/Python爬虫爬取微软官方Windows_10_ISO镜像文件/</id>
     <published>2019-02-01T08:18:47.304Z</published>
-    <updated>2018-06-18T14:12:53.066Z</updated>
+    <updated>2018-09-02T06:30:57.804Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><p>百度云盘：<a href="https://pan.baidu.com/s/1ditOInC07pgsYRAMjxUWgA" target="_blank" rel="noopener">链接</a> 密码：fc0l</p><h2 id="爬取腾讯社招首页数据并自动翻页自动保存"><a href="#爬取腾讯社招首页数据并自动翻页自动保存" class="headerlink" title="爬取腾讯社招首页数据并自动翻页自动保存"></a>爬取腾讯社招首页数据并自动翻页自动保存</h2><p>项目仓库：<a href="https://github.com/zhangao4833/A-reptile---a-Tencent-recruit" target="_blank" rel="noopener">A-reptile—a-Tencent-recruit</a></p><h2 id="爬取mzitu-com的首页全部图片并自动翻页自动保存"><a href="#爬取mzitu-com的首页全部图片并自动翻页自动保存" class="headerlink" title="爬取mzitu.com的首页全部图片并自动翻页自动保存"></a>爬取mzitu.com的首页全部图片并自动翻页自动保存</h2><p>项目仓库：<a href="https://github.com/zhangao4833/A-reptile---a-mzitu.com" target="_blank" rel="noopener">A-reptile—a-mzitu.com</a></p><blockquote><p>关于这些项目要注意的地方我都写在了仓库README里面，这里我就不单独一个一个说了，还有这里不定时更新（啥时候写出来一个就更新一个|滑稽.jpg）</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h1><blockquote><p>该爬虫没有采用Scrapy框架，只是采用简单的request+selenium以及前端可视化界面的PyQt5，如果你认为网上的系统不是很干净，MSDN里面的系统又比较的旧，没有新的版本，那你就可以尝试使用该软件，也可以优化或更改它</p></blockquote><blockquote><p>为什么要用selenium呢，我发现他官网属性里有个input标签并不是静态加载的，而是动态加载的，当然后面还有很多动态的ajax加载，但是这个input标签不一样，我分析了它的ajax全部加载项，很难发现他的value值在哪加进去的，这个value值十分重要，它将会是后面ajax请求的重要参数，所以我采用selenium配合chromedriver等他js加载完了之后再去获取界面的标签就可以了，当然可能分析js能抓到它的值，我没有详细的去看，selenium以及提供很简单的方法，并不用那么复杂。</p></blockquote><blockquote><p>后面选择语言、版本、位数选项都是采用的ajax请求去做的，我就采用简单的url拼接的方式去获取返回值，再根据返回值构建新的url，直到获取到Windows的ISO下载链接为止。</p></blockquote><blockquote><p>在这里提醒下，微软官网有访问限制，如果频繁访问的话就会返回请求不到链接的情况，这是IP屏蔽，我在界面里也加了判断，如果你获取不到请求了会提示你的，但是不用担心，就算被屏蔽了，过几个小时就又可以访问了（由于测试要不停的访问，我可是牺牲了好几个酸酸乳）</p></blockquote><blockquote><p>有大佬会问为啥不用代理，我感觉没必要，ISO获取一次就OK了，谁没事干一直获取它的链接完，你获取一个链接下载就好了</p></blockquote><blockquote><p>在下载模块这边刚开始使用了网上的有个多线程下载的方式（后面我会贴出来，可以破解百度云的下载限速），但是我发现了两点意外情况，第一点python的多线程有个全局解释器锁（GIL），有兴趣的可以百度详细去看一下，我在测试10M大小的文件时，最快下载速度是当线程开到100的时候，当你在添加线程数的话它的速度反而会下降，第二点，文件大概有4G左右大小，他这个多线程的原理就是先在链接头里获取文件的大小，然后将大小分割成线程块（几个线程就几块）然后每个线程将分配到自己的块写入指定位置，但是如果文件太大的话就算分割了还是比较的大，线程的下载速度还是很慢，如果启动太多线程就会有第一点的问题，同时线程太多也会引起很多错误，我没仔细分析错误，因为我认为自己的宽带速度才是关键，微软官网对于下载并没有限速，我用酸酸乳下载挺快的，那该多线程下载方法就只能针对限速的链接，像这种没限速的，自己的宽带速度才是关键，不管你开多少线程，网速还是那样。所以我采用了简单的下载模块urlretrieve</p></blockquote><blockquote><p>就是因为微软的服务器可能不在中国，所以下载速度很慢，挂个酸酸乳就快了，我也在界面里将获取到的链接放出来了，嫌下载慢的，可以点击复制链接，自己去其他下载器下载</p></blockquote><blockquote><p>我用的chromedriver版本是v2.41，它所支持的Chrome版本为v67-69，大家可以自行下载或者替换chromedriver与Chrome浏览器</p></blockquote><blockquote><p>前端界面采用的是Qt Creator 4.6.2 (Enterprise)和pycharm配合产生的界面，不会配置的可以百度下</p></blockquote><blockquote><p>该项目的源码以及打包后的exe文件发布在github中:<a href="https://github.com/zhangao4833/Microsoft_win10ISO" target="_blank" rel="noopener">点击此进入项目</a></p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;学习资源&quot;&gt;&lt;a href=&quot;#学习资源&quot; class=&quot;headerlink&quot; title=&quot;学习资源&quot;&gt;&lt;/a&gt;学习资源&lt;/h2&gt;&lt;p&gt;百度云盘：&lt;a href=&quot;https://pan.baidu.com/s/1ditOInC07pgsYRAMjxUWgA&quot;
+        &lt;h1 id=&quot;简单说明&quot;&gt;&lt;a href=&quot;#简单说明&quot; class=&quot;headerlink&quot; title=&quot;简单说明&quot;&gt;&lt;/a&gt;简单说明&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;该爬虫没有采用Scrapy框架，只是采用简单的request+selenium以及前端可视化界面的
       
     
     </summary>
@@ -295,7 +293,9 @@
     
       <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
     
-      <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
+      <category term="Windows10" scheme="https://www.imzhangao.com/tags/Windows10/"/>
+    
+      <category term="微软" scheme="https://www.imzhangao.com/tags/%E5%BE%AE%E8%BD%AF/"/>
     
   </entry>
   
@@ -350,9 +350,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
-    
       <category term="Scrapy" scheme="https://www.imzhangao.com/tags/Scrapy/"/>
+    
+      <category term="爬虫" scheme="https://www.imzhangao.com/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
@@ -382,37 +382,9 @@
     
       <category term="Python" scheme="https://www.imzhangao.com/tags/Python/"/>
     
-      <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
-    
       <category term="Django" scheme="https://www.imzhangao.com/tags/Django/"/>
     
-  </entry>
-  
-  <entry>
-    <title>js在Cookie中取值乱码问题</title>
-    <link href="https://www.imzhangao.com/2019/02/01/js%E5%9C%A8cookie%E4%B8%AD%E5%8F%96%E5%80%BC%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://www.imzhangao.com/2019/02/01/js在cookie中取值乱码问题/</id>
-    <published>2019-02-01T08:18:47.226Z</published>
-    <updated>2018-04-30T08:48:16.710Z</updated>
-    
-    <content type="html"><![CDATA[<p>假设服务器端设置了变量CookieTest,然后通过UrlEncode编码为 utf-8</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CookieTest = HttpUtility.UrlEncode(CookieTest, System.Text.Encoding.UTF8);</span><br></pre></td></tr></table></figure><p>然后将 CookieTest 存入到cookie中</p><p>在前端界面里面，用JavaScript取到cookie中CookieTest的值，然后用 decodeURI 解码</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CookieTest = <span class="built_in">decodeURI</span>(CookieTest);</span><br></pre></td></tr></table></figure><p>最后得到的这个CookieTest值就是你从服务器端传过来的值</p><p><br></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;假设服务器端设置了变量CookieTest,然后通过UrlEncode编码为 utf-8&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="https://www.imzhangao.com/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.imzhangao.com/tags/JavaScript/"/>
-    
-      <category term="Cookie" scheme="https://www.imzhangao.com/tags/Cookie/"/>
+      <category term="Socket" scheme="https://www.imzhangao.com/tags/Socket/"/>
     
   </entry>
   
@@ -441,6 +413,34 @@
       <category term="HEXO" scheme="https://www.imzhangao.com/tags/HEXO/"/>
     
       <category term="live2d" scheme="https://www.imzhangao.com/tags/live2d/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js在Cookie中取值乱码问题</title>
+    <link href="https://www.imzhangao.com/2019/02/01/js%E5%9C%A8cookie%E4%B8%AD%E5%8F%96%E5%80%BC%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.imzhangao.com/2019/02/01/js在cookie中取值乱码问题/</id>
+    <published>2019-02-01T08:18:47.226Z</published>
+    <updated>2018-04-30T08:48:16.710Z</updated>
+    
+    <content type="html"><![CDATA[<p>假设服务器端设置了变量CookieTest,然后通过UrlEncode编码为 utf-8</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CookieTest = HttpUtility.UrlEncode(CookieTest, System.Text.Encoding.UTF8);</span><br></pre></td></tr></table></figure><p>然后将 CookieTest 存入到cookie中</p><p>在前端界面里面，用JavaScript取到cookie中CookieTest的值，然后用 decodeURI 解码</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CookieTest = <span class="built_in">decodeURI</span>(CookieTest);</span><br></pre></td></tr></table></figure><p>最后得到的这个CookieTest值就是你从服务器端传过来的值</p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;假设服务器端设置了变量CookieTest,然后通过UrlEncode编码为 utf-8&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://www.imzhangao.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://www.imzhangao.com/tags/JavaScript/"/>
+    
+      <category term="Cookie" scheme="https://www.imzhangao.com/tags/Cookie/"/>
     
   </entry>
   
